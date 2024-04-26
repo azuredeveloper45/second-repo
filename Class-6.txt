@@ -1,0 +1,149 @@
+strlen.sh
+
+#!/bin/bash
+#Bash program to find the length of a string
+
+str="Welcome to String"
+length=${#str}
+echo "Length of '$str' is $length"
+
+length1=`expr length "$str"`
+echo "Length1 of '$str' is $length1"
+
+length2=`expr "$str" : '.*'`
+echo "Length2 of '$str' is $length"
+
+length3=`echo $str | wc -c`
+echo "Length3 of '$str' is $length"
+
+length4=`echo $str |awk '{print length}'`
+echo "Length4 of '$str' is $length"
+
+substr.sh
+
+#!/bin/bash
+#Script to extract first 10 characters of a string
+echo "String: We welcome you on String Basics."
+str="We welcome you on String."
+echo "Total characters in a String: ${#str} "
+substr="${str:0:10}"
+echo "Substring: $substr"
+echo "Total characters in Substring: ${#substr} "
+
+
+
+strcat.sh
+
+#!/bin/bash
+#Script to Concatenate Strings
+#Declaring the first String
+str1="We welcome you"
+#Declaring the Second String
+str2=" on String Basics."
+#Combining first and second string
+str3="$str1$str2"
+#Printing a new string by combining both
+echo $str3
+str4="this is concat demo"
+str5="$str3$str4"
+echo $str5
+
+non-empty.sh
+
+#!/bin/sh
+
+str="WelcometoJavatpoint"
+
+if [ -n $str ];
+then
+    echo "String is not empty"
+else
+    echo "String is empty"
+fi
+
+
+empty.sh
+
+#!/bin/sh
+
+str=""
+
+if [ -z $str ];
+then
+    echo "String is empty."
+else
+    echo "String is non-empty."
+fi
+
+
+
+Reading Files:
+
+example.sh
+
+ #!/bin/sh
+source include.sh
+
+greet opensource.com
+
+echo "The meaning of life is $var"
+
+
+
+
+include.sh
+
+greet() {
+    echo "Hello ${1}"
+}
+
+
+
+Writing Data into a file:
+
+#!/bin/sh
+
+TZ=UTC
+date > date.txt
+
+
+Read.sh
+
+#!/bin/bash
+read -p "Enter file name : " filename
+while read line
+do
+echo $line
+done < $filename
+
+
+Read1.sh
+
+#! /bin/bash
+
+echo Enter the filename
+read file
+c=`cat $file | wc -c`
+w=`cat $file | wc -w`
+l=`grep -c "." $file`
+echo Number of characters in $file is $c
+echo Number of words in $file is $w
+echo Number of lines in $file is $l
+
+
+Read2.sh
+
+#! /bin/bash
+echo -e "Enter the name of the file : \c"
+read file_name
+
+if [ -d $file_name ]
+then
+   echo "$file_name is a directory"
+else
+   echo "$file_name is not a directory"
+fi
+
+var=42
+
+
